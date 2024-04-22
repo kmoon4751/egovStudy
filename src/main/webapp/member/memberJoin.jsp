@@ -4,7 +4,6 @@
 <html>
 <head>
 <style>
-
 body {
 	font-size: 9pt;
 	font-colr: #333333;
@@ -62,7 +61,6 @@ caption {
 			var userid = $("#userid").val();
 			userid = $.trim(userid);
 
-			//아이디가 공백일 시 팝업창
 			if (userid == "") {
 				alert("아이디를 입력해주세요");
 				$("#userid").focus();
@@ -144,18 +142,18 @@ caption {
 			$.ajax({
 
 				//데이터를 전송하기 전 세팅
-				type : "POST", 								// 어떤 방식으로 전송할것인지.
-				data : formData, 							// 전송할 데이터
-				url : "memberJoinSave.do", 					// 데이터를 전송할 url
-				dataType : "text", 							// 서버에서 받을 데이터 타입
+				type : "POST", // 어떤 방식으로 전송할것인지.
+				data : formData, // 전송할 데이터
+				url : "memberJoinSave.do", // 데이터를 전송할 url
+				dataType : "text", // 서버에서 받을 데이터 타입
 
 				//데이터를 전송하고난 후 세팅
-				success : function(result) { 				// 성공했을 때 처리
-					if (result == "ok") { 					// 서버로부터 받은 결과가 ok 일 때
-						alert("저장 완료하였습니다."); 
-						$("#frm")[0].reset(); 				// 폼 초기화
-						location("login.do"); 				// 로그인 페이지로 이동
-					} else { 
+				success : function(result) { // 성공했을 때 처리
+					if (result == "ok") { // 서버로부터 받은 결과가 ok 일 때
+						alert("저장 완료하였습니다.");
+						$("#frm")[0].reset(); // 폼 초기화
+						location("login.do"); // 로그인 페이지로 이동
+					} else {
 						alert("저장 실패하였습니다");
 					}
 				},

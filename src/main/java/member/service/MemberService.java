@@ -13,7 +13,7 @@ public interface MemberService {
 	public String insertMember(MemberVO vo) throws Exception;
 
 	/* 아이디 중복 체크 */
-	public String idChk(String userid) throws Exception;
+	public int selectIdChk(String userid);
 
 }
 
