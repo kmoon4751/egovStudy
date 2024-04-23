@@ -15,6 +15,9 @@ public interface MemberService {
 	/* 아이디 중복 체크 */
 	public int selectIdChk(String userid);
 
+	/*로그인 로직*/
+	public int loginProc(MemberVO vo);
+
 }
 
 

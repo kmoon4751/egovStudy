@@ -26,6 +26,12 @@ public class MemberServiceImpl implements MemberService {
 	public int selectIdChk(String userid) {
 		return memberDAO.selectIdChk(userid);
 	}
+
+	//아이디 유무 및 패스워드 오류
+	@Override
+	public int loginProc(MemberVO vo) {
+		return memberDAO.loginProc(vo);
+	}
 	
 	
 

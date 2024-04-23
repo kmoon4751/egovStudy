@@ -32,6 +32,11 @@ public class MemberDAO extends EgovAbstractDAO {
 		 */
 
 	}
+	
+	//로그인 아이디 유무 및 패스워드 오류
+	public int loginProc(MemberVO vo) {
+		return (int) select("memberDAO.loginProc", vo);
+	}
 
 }
 

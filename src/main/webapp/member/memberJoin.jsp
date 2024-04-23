@@ -171,6 +171,9 @@ caption {
 </head>
 <body>
 
+<!-- 현재 jsp에 다른 jsp파일을 포함시키는 지시문 -->
+<%@ include file="topMenu.jsp" %>
+
 	<form name="frm" id="frm">
 		<table>
 			<caption>회원가입 폼</caption>

@@ -6,10 +6,10 @@
 <meta charset="UTF-8">
 <title>로그인 하세요</title>
 
+<!-- 제이쿼리 사용을 위해 -->
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 
 <script>
-
 	//저장 버튼 활성
 	$(function() {
 		$("#btn_submit").click(function() {
@@ -45,20 +45,20 @@
 
 				//데이터를 전송하기 전 세팅
 				type : "POST", // 어떤 방식으로 전송할것인지.
-				data : "userid="+userid+"&pass="+pass, // 전송할 데이터
+				data : "userid=" + userid + "&pass=" + pass, // 전송할 데이터
 				url : "loginProc.do", // 데이터를 전송할 url
 				dataType : "text", // 서버에서 받을 데이터 타입
 
 				//데이터를 전송하고난 후 세팅
 				success : function(result) { // 성공했을 때 처리
 					if (result == "ok") { // 서버로부터 받은 결과가 ok 일 때
-						alert(userid+"님 로그인되셨습니다.");
+						alert(userid + "님 로그인되셨습니다.");
 						$("#frm")[0].reset(); // 폼 초기화
-						location("main.do"); // 메인 페이지로 이동
-					} else if(result == "x"){
-						alert(userid+"해당 아이디는 없는 아이디입니다.")
-					}else {
-						alert(userid+"님 패스워드가 틀렸습니다.");
+						location.href = "main.do"; // 로그인 후메인 페이지로 이동
+					} else if (result == "x") {
+						alert(userid + "해당 아이디는 없는 아이디입니다.")
+					} else {
+						alert("아이디 또는 패스워드를 확인해주세요.");
 					}
 				},
 				error : function() { // 오류 발생 시 처리
@@ -72,6 +72,8 @@
 </script>
 </head>
 <body>
+	<%@ include file="topMenu.jsp"%>
+
 	<form name="frm" id="frm">
 		<table>
 			<caption>로그인</caption>

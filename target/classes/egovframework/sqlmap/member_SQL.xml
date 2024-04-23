@@ -6,29 +6,37 @@
 		type="egovframework.rte.psl.dataaccess.util.EgovMap" />
 	<typeAlias alias="memberVO" type="member.service.MemberVO" />
 
-	<insert id = "insertMember">
+	<insert id="insertMember">
 		INSERT INTO MEMBER(USERID,
-							PASS,
-							NAME,
-							GENDER,
-							BIRTH,
-							TEL,
-							ADDRESS)
-						VALUES(#userid#,
-								#pass#,
-								#name#,
-								#gender#,
-								#birth#,
-								#tel#,
-								#address#
-						) 
-	
+		PASS,
+		NAME,
+		GENDER,
+		BIRTH,
+		TEL,
+		ADDRESS)
+		VALUES(#userid#,
+		#pass#,
+		#name#,
+		#gender#,
+		#birth#,
+		#tel#,
+		#address#
+		)
+
 	</insert>
-	
-	<select id ="selectIdChk" resultClass="Integer">
-	SELECT COUNT(*)
-	 FROM MEMBER
-	 WHERE USERID = #userid#
+
+
+	<select id="selectIdChk" resultClass="Integer">
+		SELECT COUNT(*)
+		FROM MEMBER
+		WHERE USERID = #userid#
+	</select>
+
+	<select id="loginProc" resultClass="Integer">
+		SELECT COUNT(*)
+		FROM MEMBER
+		WHERE USERID = #userid#
+		AND PASS = #pass#
 	</select>
 
 </sqlMap>

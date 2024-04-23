@@ -4,11 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>메인페이지</title>
 </head>
 <body>
-
-로그인 화면
+<%@include file="topMenu.jsp" %>
 
 </body>
 </html>
