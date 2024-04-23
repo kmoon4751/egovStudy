@@ -152,13 +152,13 @@ caption {
 					if (result == "ok") { // 서버로부터 받은 결과가 ok 일 때
 						alert("저장 완료하였습니다.");
 						$("#frm")[0].reset(); // 폼 초기화
-						location("login.do"); // 로그인 페이지로 이동
+						location.href = "login.do"; // 로그인 페이지로 이동
 					} else {
 						alert("저장 실패하였습니다");
 					}
 				},
 				error : function() { // 오류 발생 시 처리
-					alert("error가 발생하였습니다.");
+					alert("중복체크 또는 빈칸을 확인해주세요.");
 				}
 			});
 
