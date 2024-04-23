@@ -1,5 +1,7 @@
 package member.service.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -31,6 +33,12 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public int loginProc(MemberVO vo) {
 		return memberDAO.loginProc(vo);
+	}
+
+	// 가입한 전체 회원 조회
+	@Override
+	public List<MemberVO> memberList() {
+		return memberDAO.memberList();
 	}
 	
 	

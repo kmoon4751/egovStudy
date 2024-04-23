@@ -38,5 +38,10 @@
 		WHERE USERID = #userid#
 		AND PASS = #pass#
 	</select>
+	
+	<select id="memberList">
+		SELECT USERID, NAME, GENDER, TEL
+		FROM MEMBER
+	</select>
 
 </sqlMap>

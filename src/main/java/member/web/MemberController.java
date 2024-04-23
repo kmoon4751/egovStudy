@@ -1,11 +1,14 @@
 package member.web;
 
+import java.util.List;
+
 import javax.annotation.Resource;
+import javax.enterprise.inject.Model;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import member.service.MemberService;
@@ -94,11 +97,20 @@ public class MemberController {
 		session.removeAttribute("sessionId");
 		return "member/main";
 	}
-	
+
 	//메인화면
 	@RequestMapping("main.do")
 	public String main() {
 		return "member/main";
+	}
+	
+	//회원목록
+	@RequestMapping("memberlist.do")
+	public String memberList(ModelMap model) {
+		
+		List<MemberVO> memberList = memberService.memberList();
+		model.addAttribute("memberList", memberList);
+		return "member/memberlist";
 	}
 
 }

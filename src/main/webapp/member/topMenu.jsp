@@ -49,7 +49,7 @@ caption {
 	<table>
 		<tr>
 			<th><a href="main.do">홈</a></th>
-			<th>...</th>
+			<th><a href="memberlist.do">회원리스트</a></th>
 
 			<%
 				if (sUID == null) {

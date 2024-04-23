@@ -1,4 +1,7 @@
 package member.service;
+
+import java.util.List;
+
 /*
 인터페이스는 서비스 계층에서 사용된다.
 회원 정보를 등록하는 기능을 정의하고, 이를 구현하는 클래스는 해당 인터페이스를 구현해야 한다.
@@ -17,6 +20,9 @@ public interface MemberService {
 
 	/*로그인 로직*/
 	public int loginProc(MemberVO vo);
+	
+	/*가입한 회원 조회하기*/
+	public List<MemberVO> memberList();
 
 }
 

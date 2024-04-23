@@ -1,5 +1,7 @@
 package member.service.impl;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
@@ -36,6 +38,11 @@ public class MemberDAO extends EgovAbstractDAO {
 	//로그인 아이디 유무 및 패스워드 오류
 	public int loginProc(MemberVO vo) {
 		return (int) select("memberDAO.loginProc", vo);
+	}
+	
+	// 가입한 멤버 조회하기
+	public List<MemberVO> memberList() {
+		return (List<MemberVO>) select("memberDAO.memberList");
 	}
 
 }
