@@ -17,31 +17,29 @@ public class MemberServiceImpl implements MemberService {
 	public MemberDAO memberDAO;
 	// memberDAO는 memberDAO의 이름을 가진 Bean객체에 의존성을 가지게 된다.
 
-	//회원 등록 쿼리
+	// 회원 등록 쿼리
 	@Override
 	public String insertMember(MemberVO vo) throws Exception {
 		return memberDAO.insertMember(vo);
 	}
 
-	// 중복 확인 
+	// 중복 확인
 	@Override
 	public int selectIdChk(String userid) {
 		return memberDAO.selectIdChk(userid);
 	}
 
-	//아이디 유무 및 패스워드 오류
+	// 아이디 유무 및 패스워드 오류
 	@Override
 	public int loginProc(MemberVO vo) {
 		return memberDAO.loginProc(vo);
 	}
 
-	// 가입한 전체 회원 조회
+	// 전체 회원 조회 메소드
 	@Override
-	public List<MemberVO> memberList() {
-		return memberDAO.memberList();
+	public List<?> selectMemberList() {
+		return memberDAO.selectMemberList();
 	}
-	
-	
 
 }
 

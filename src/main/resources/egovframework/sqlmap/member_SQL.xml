@@ -39,8 +39,8 @@
 		AND PASS = #pass#
 	</select>
 	
-	<select id="memberList">
-		SELECT USERID, NAME, GENDER, TEL
+	<select id="selectMemberList" resultClass="EgovMap">
+		SELECT ROWNUM, USERID, PASS, NAME, GENDER, BIRTH, TEL, ADDRESS
 		FROM MEMBER
 	</select>
 

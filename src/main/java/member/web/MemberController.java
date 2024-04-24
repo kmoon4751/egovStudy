@@ -3,11 +3,10 @@ package member.web;
 import java.util.List;
 
 import javax.annotation.Resource;
-import javax.enterprise.inject.Model;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -104,13 +103,17 @@ public class MemberController {
 		return "member/main";
 	}
 	
+	/*
+	 * 전체 회원 목록 조회하기 24.04.24
+	 */
 	//회원목록
-	@RequestMapping("memberlist.do")
-	public String memberList(ModelMap model) {
+	@RequestMapping("memberList.do")
+	public String selectMemberList(Model model) throws Exception{
 		
-		List<MemberVO> memberList = memberService.memberList();
-		model.addAttribute("memberList", memberList);
-		return "member/memberlist";
+		List<?> list = memberService.selectMemberList();
+		System.out.println("회원 리스트 : " + list);
+		model.addAttribute("memberList", list);
+		return "member/memberList";
 	}
 
 }

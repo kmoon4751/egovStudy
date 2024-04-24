@@ -4,6 +4,7 @@ package member.service;
 //데이터를 담을 그릇
 // VO : Value Object
 public class MemberVO {
+	private String rownum;
 	private String userid;
 	private String pass;
 	private String name;
@@ -56,6 +57,12 @@ public class MemberVO {
 	}
 	public void setAddress(String address) {
 		this.address = address;
+	}
+	public String getRownum() {
+		return rownum;
+	}
+	public void setRownum(String rownum) {
+		this.rownum = rownum;
 	}
 	
 	

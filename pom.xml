@@ -124,7 +124,9 @@
 			<version>2.5.0</version>
 		</dependency>
 
-        <!-- mysql이나 oracle DB 사용시 아래 설정 추가
+		<!-- ▼2024/04/24 수정 -->
+        <!-- mysql이나 oracle DB 사용시 아래 설정 추가 -->
+        
         <dependency>
             <groupId>com.googlecode.log4jdbc</groupId>
             <artifactId>log4jdbc</artifactId>
@@ -150,14 +152,21 @@
         </dependency>
 
         <dependency>
-            <groupId>ojdbc</groupId>
-            <artifactId>ojdbc</artifactId>
-            <version>14</version>
-            <scope>system</scope>
-            <systemPath>${basedir}/src/main/webapp/WEB-INF/lib/ojdbc-14.jar</systemPath>
-        </dependency>
-        -->
+			<groupId>ojdbc</groupId>
+			<artifactId>ojdbc</artifactId>
+			<version>8</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/src/main/webapp/WEB-INF/lib/ojdbc8.jar</systemPath>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-dbcp2</artifactId>
+			<version>2.2.0</version>
+		</dependency>
+		
 	</dependencies>
+<!-- ▲2024/04/24 수정 -->
 
 	<build>
         <defaultGoal>install</defaultGoal>

@@ -13,6 +13,7 @@ import member.service.MemberVO;
 @Repository("memberDAO")
 public class MemberDAO extends EgovAbstractDAO {
 
+
 	// 매개변수를 받아 쿼리문을 실행
 	// src/main/resources/egovframework/sqlmap
 	public String insertMember(MemberVO vo) {
@@ -39,10 +40,11 @@ public class MemberDAO extends EgovAbstractDAO {
 	public int loginProc(MemberVO vo) {
 		return (int) select("memberDAO.loginProc", vo);
 	}
+
 	
-	// 가입한 멤버 조회하기
-	public List<MemberVO> memberList() {
-		return (List<MemberVO>) select("memberDAO.memberList");
+//	// 가입한 멤버 조회하기
+	public List<?> selectMemberList(){
+		return list("memberDAO.selectMemberList");
 	}
 
 }

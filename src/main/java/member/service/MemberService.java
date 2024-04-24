@@ -21,8 +21,8 @@ public interface MemberService {
 	/*로그인 로직*/
 	public int loginProc(MemberVO vo);
 	
-	/*가입한 회원 조회하기*/
-	public List<MemberVO> memberList();
+	/*전체 회원 조회하기*/
+	public List<?> selectMemberList();
 
 }
 
