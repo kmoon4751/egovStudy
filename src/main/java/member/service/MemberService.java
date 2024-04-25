@@ -24,6 +24,9 @@ public interface MemberService {
 	/*전체 회원 조회하기*/
 	public List<?> selectMemberList();
 
+	/*회원 삭제*/
+	public int delMember(String userid);
+
 }
 
 

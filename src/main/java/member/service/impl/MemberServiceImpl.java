@@ -41,6 +41,12 @@ public class MemberServiceImpl implements MemberService {
 		return memberDAO.selectMemberList();
 	}
 
+	// 멤버 삭제
+	@Override
+	public int delMember(String userid) {
+		return memberDAO.delMember(userid);
+	}
+
 }
 
 /*

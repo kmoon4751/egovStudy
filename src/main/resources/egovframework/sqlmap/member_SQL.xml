@@ -43,5 +43,11 @@
 		SELECT ROWNUM, USERID, PASS, NAME, GENDER, BIRTH, TEL, ADDRESS
 		FROM MEMBER
 	</select>
+	
+	<delete id="delMember">
+	DELETE 
+	FROM MEMBER
+	WHERE USERID = #userid#
+	</delete>
 
 </sqlMap>

@@ -2,6 +2,7 @@ package member.service.impl;
 
 import java.util.List;
 
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
@@ -12,10 +13,9 @@ import member.service.MemberVO;
 //데이터 엑세스 로직을 수행하는 DAO 클래스를 표시 / MemberDAO 를 빈으로 만든다.
 @Repository("memberDAO")
 public class MemberDAO extends EgovAbstractDAO {
-
+// 경로 : src/main/resources/egovframework/sqlmap
 
 	// 매개변수를 받아 쿼리문을 실행
-	// src/main/resources/egovframework/sqlmap
 	public String insertMember(MemberVO vo) {
 		return (String) insert("memberDAO.insertMember", vo);
 	}
@@ -42,10 +42,15 @@ public class MemberDAO extends EgovAbstractDAO {
 	}
 
 	
-//	// 가입한 멤버 조회하기
+	// 가입한 멤버 조회하기
 	public List<?> selectMemberList(){
 		return list("memberDAO.selectMemberList");
 	}
+
+	//멤버 삭제
+	public int delMember(String userid) {
+		return (int) delete("memberDAO.delMember", userid);
+	};
 
 }
 

@@ -7,7 +7,9 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import member.service.MemberService;
@@ -70,7 +72,7 @@ public class MemberController {
 	public String loginProc(MemberVO vo, HttpSession session) throws Exception {
 		String message = "";
 		System.out.println("로그인버튼 작동됨 : loginProc");
-		
+
 		int cnt = memberService.selectIdChk(vo.getUserid());
 		if (cnt == 0) { // 아이디가 없을 때
 			message = "x";
@@ -88,32 +90,51 @@ public class MemberController {
 		}
 		return message;
 	}
-	
-	//로그아웃
+
+	// 로그아웃
 	@RequestMapping("logout.do")
 	public String logout(HttpSession session) {
-		//회원 아이디를 세션에서 없앰으로써 로그아웃을 하고 메인 페이지로 이동
+		// 회원 아이디를 세션에서 없앰으로써 로그아웃을 하고 메인 페이지로 이동
 		session.removeAttribute("sessionId");
 		return "member/main";
 	}
 
-	//메인화면
+	// 메인화면
 	@RequestMapping("main.do")
 	public String main() {
 		return "member/main";
 	}
-	
+
 	/*
 	 * 전체 회원 목록 조회하기 24.04.24
 	 */
-	//회원목록
+	// 회원목록
 	@RequestMapping("memberList.do")
-	public String selectMemberList(Model model) throws Exception{
-		
+	public String selectMemberList(Model model) throws Exception {
+
 		List<?> list = memberService.selectMemberList();
 		System.out.println("회원 리스트 : " + list);
 		model.addAttribute("memberList", list);
 		return "member/memberList";
+	}
+
+	/*
+	 * 회원 삭제 24.04.25
+	 */
+	@RequestMapping("delMember.do")
+	@ResponseBody
+	public String delMember(@RequestParam("userid") String userid) throws Exception {
+		String message = "";
+
+		// 삭제된 행의 수 반환
+		int cnt = memberService.delMember(userid);
+		System.out.println("삭제버튼 클릭시 : " + cnt);
+		if (cnt > 0) {
+			message = "ok";
+		} else {
+			return message = "error";
+		}
+		return message;
 	}
 
 }
