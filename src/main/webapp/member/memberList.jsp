@@ -11,9 +11,8 @@
 <!-- 제이쿼리 사용을 위해 -->
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script>
-
 	$(function() {
-		//모든 삭제 버튼에 이벤트핸들러를 적용해야 하므로 class를 사용하기 때문에 .btn_del
+		//모든 삭제 버튼에 각각의 이벤트핸들러를 적용해야 하므로 class를 사용하기 때문에 .btn_del
 		$(".btn_del").click(function() {
 			//클릭된 버튼의 데이터 속성을 사용하여 데이터를 가져오기 위해 jQuery의 data() 메소드를 사용
 			// $(this) : 현재 이벤트가 발생하는 jQeury의 객체
@@ -30,7 +29,7 @@
 				success : function(result) {
 					if (result == "ok") {
 						alert(userid + "님의 정보가 삭제되었습니다.");
-						location.href="memberList.do";	//삭제 후 새로고침
+						location.href = "memberList.do"; //삭제 후 새로고침
 					} else {
 						console.log(result);
 						alert("정보 삭제 실패");
@@ -54,6 +53,10 @@
 <body>
 	<%@ include file="topMenu.jsp"%>
 
+		<tr>
+			<td><input type="text" name="find" id="find placeholder="회원검색"></td>
+			<button type="button" id="btn_find">찾기</button>
+		</tr>
 	<table>
 		<!-- 표의 헤더 -->
 		<thead>

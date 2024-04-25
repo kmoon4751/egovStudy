@@ -25,7 +25,6 @@
 
 	</insert>
 
-
 	<select id="selectIdChk" resultClass="Integer">
 		SELECT COUNT(*)
 		FROM MEMBER
@@ -49,5 +48,11 @@
 	FROM MEMBER
 	WHERE USERID = #userid#
 	</delete>
+	
+	<select id="findMember" resultClass="EgovMap">
+	SELECT *
+	FROM MEMBER
+	WHERE USERID = #userid# OR NAME = #name# OR TEL = #tel#
+	</select>
 
 </sqlMap>
