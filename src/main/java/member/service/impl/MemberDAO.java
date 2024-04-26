@@ -50,7 +50,12 @@ public class MemberDAO extends EgovAbstractDAO {
 	//멤버 삭제
 	public int delMember(String userid) {
 		return (int) delete("memberDAO.delMember", userid);
-	};
+	}
+
+	//멤버 검색
+	public List<?> findMember(String keyword) {
+		return list("memberDAO.findMember", keyword);
+	}
 
 }
 

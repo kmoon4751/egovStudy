@@ -136,5 +136,19 @@ public class MemberController {
 		}
 		return message;
 	}
+	
+	/*
+	 * 회원 검색 24.04.26
+	 * */
+	@RequestMapping("findMember.do")
+	@ResponseBody
+	public List<?> findMember(@RequestParam("keyword") String keyword) throws Exception{
+		System.out.println("사용자가 입력한 키워드 : " + keyword);
+		
+		List<?> findmember = memberService.findMember(keyword);
+		System.out.println("찾은 회원 : " + findmember);
+		
+		return findmember;
+	}
 
 }

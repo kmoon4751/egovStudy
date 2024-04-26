@@ -27,6 +27,9 @@ public interface MemberService {
 	/*회원 삭제*/
 	public int delMember(String userid);
 
+	/*회원 검색*/
+	public List<?> findMember(String keyword);
+
 }
 
 

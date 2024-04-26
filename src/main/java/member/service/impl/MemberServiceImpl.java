@@ -47,6 +47,11 @@ public class MemberServiceImpl implements MemberService {
 		return memberDAO.delMember(userid);
 	}
 
+	@Override
+	public List<?> findMember(String keyword) {
+		return memberDAO.findMember(keyword);
+	}
+
 }
 
 /*
